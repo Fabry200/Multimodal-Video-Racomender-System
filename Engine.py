@@ -21,9 +21,9 @@ class Engine:
                 score=self.score(embedding,e)
                 scores.append(score)
             weights = np.exp(scores) / np.sum(np.exp(scores))
-            files[file]=np.dot(weights, scores)
-            
-        
+            top3_scores = [e[2] for e in self.user.embeddings[:3]]
+            files[file] = np.dot(weights, top3_scores)           
+
         return sorted(files, key=lambda video: files[video], reverse=True)[0]
 
     
