@@ -28,8 +28,6 @@ class Engine:
 
     
     def score(self, input_embedding, user_embedding):
-        user_embedding = user_embedding / np.linalg.norm(user_embedding)
-        input_embedding = input_embedding / np.linalg.norm(input_embedding)
         cosine = np.dot(input_embedding, user_embedding) / (norm(input_embedding) * norm(user_embedding))
         return cosine
         
