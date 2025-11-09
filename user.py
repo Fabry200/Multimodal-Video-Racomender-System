@@ -34,7 +34,7 @@ class User:
         #print(score)
         
         self.embeddings.append([embedding,watch_time,score])
-        self.embeddings=sorted(self.embeddings, key=lambda x: x[1], reverse=True)
+        self.embeddings=sorted(self.embeddings, key=lambda x: x[2], reverse=True)
         self.preferences.add(
                 ids=[f"v{len(self.i)}"],                
                 embeddings=[embedding], 
